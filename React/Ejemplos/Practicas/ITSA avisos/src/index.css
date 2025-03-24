@@ -1,5 +1,7 @@
 /* index.css */
 html, body {
+  width: fit-content;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   height: 100%;
