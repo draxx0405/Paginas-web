@@ -55,3 +55,28 @@ export const getUsers = async (nextLink = null) => {
         throw error;
     }
 };
+
+
+export const obtenerUsurioPorNombre = async (NombreDeUsuario) => {
+    const token = await getAccessToken();
+    const client = Client.init({
+        authProvider: (done) => {
+            done(null, token);
+        },
+    });
+
+    try {
+            let response;
+            response = await client.api('/users')
+                .filter("")
+                .get();
+
+            console.log(response);
+            return {users: response.value} // Retornar info Usuario
+        } catch (error) {
+            console.error('Error al obtener el usuarios:', error);
+            throw error;
+        }
+    }
+};
+
